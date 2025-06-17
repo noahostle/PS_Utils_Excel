@@ -9,7 +9,7 @@ function Get-Sheet-From-PWD($dir) {
 	Write-Host ""
 
 	if ($excelFiles.Count -eq 0) {
-		Write-Error "No Excel files found in the current directory." -ForegroundColor Red
+		Write-Error "No Excel files found in the current directory."
 		exit
 	}
 	elseif ($excelFiles.Count -eq 1) {
@@ -35,7 +35,7 @@ function Get-Sheet-From-PWD($dir) {
 	# Get sheet names from the chosen Excel file
 	$sheets = (Get-ExcelSheetInfo -Path $filename).Name
 	if ($sheets.Count -eq 0) {
-		Write-Error "No sheets found in the Excel file." -ForegroundColor Red
+		Write-Error "No sheets found in the Excel file."
 		exit
 	}
 
