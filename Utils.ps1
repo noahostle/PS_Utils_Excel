@@ -1,10 +1,10 @@
-function Get-Sheet-From-PWD {
+function Get-Sheet-From-PWD($dir) {
 	# Requires ImportExcel module
 	if (-not (Get-Module -ListAvailable ImportExcel)) { Install-Module ImportExcel -Scope CurrentUser -Force }
 	Import-Module ImportExcel -Force
 
 	# Get all .xlsx files in current directory
-	$excelFiles = Get-ChildItem -Path $PSScriptRoot -Filter *.xlsx
+	$excelFiles = Get-ChildItem -Path $dir -Filter *.xlsx
 	
 	Write-Host ""
 
