@@ -1,5 +1,3 @@
-#. "$PSScriptRoot\..\Utils\Utils.ps1"
-
 function Get-Package-ColumnMap($ws) {
 	$columns = @{}
 	for ($col=1; $col -le $ws.Dimension.End.Column; $col++) {
@@ -76,6 +74,10 @@ function Get-SheetName($dir) {
 	if ($sheets.Count -eq 0) {
 		Write-Error "No sheets found in the Excel file." 
 		exit
+	}
+	
+	if ($sheets -is [string]) {
+		return @($filename, $sheets)
 	}
 
 	Write-Host "Available sheets:" -ForegroundColor Yellow
